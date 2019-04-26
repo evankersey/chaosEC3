@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1556265180 source:/home/evan/Documents/school/cs1337hw/chaosEC3/main.cpp
+	<iostream>
+	<vector>
+	<time.h>
+	<random>
+	<fstream>
+	<cmath>
+	"polygon.h"
+
+1556258754 /home/evan/Documents/school/cs1337hw/chaosEC3/include/circle.h
+
+1556258754 source:/home/evan/Documents/school/cs1337hw/chaosEC3/src/circle.cpp
+	"circle.h"
+
+1556265063 source:/home/evan/Documents/school/cs1337hw/chaosEC3/src/polygon.cpp
+	"polygon.h"
+	<cmath>
+	<iostream>
+
+1556265063 /home/evan/Documents/school/cs1337hw/chaosEC3/include/polygon.h
+	<vector>
+	<cmath>
+
