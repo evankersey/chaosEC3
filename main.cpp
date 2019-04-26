@@ -1,3 +1,17 @@
+// https://github.com/evankersey/chaosEC3
+// Chaos_Game
+// 4/26/19
+// Evan Kersey
+//
+// description: the chaos game creates pictures of text by jumping partway between a given set of points randomly
+//
+// Special Features.
+//  classes, polygon of any size, rotation of polygon, text output, etc...
+//
+// ToDo
+//  allow program to take arguments from command line
+//  do not repeat previous node
+
 #include <iostream>
 #include<vector>
 #include<time.h>
@@ -8,10 +22,16 @@
 
 using namespace std;
 
-const int maxWidth = 200;
-const int maxHeight = 200;
+////////////////CHANGE THESE VARIABLES//////////
+double theta = 0; //in radians
+int numVertices = 5; //how many vertices the polygon has
+double divideByMe = 2.5; //changes where the newpoint is calculated. divide by two for midpoint
+////////////////BE CAREFUL//////////////////////
+const int maxWidth = 150;
+const int maxHeight = 150;
+int numIterations = 2000000;
+///////////////////////////////////////////////
 bool chaosBoard[maxHeight][maxWidth] = {};
-
 
 struct point
 {
@@ -46,8 +66,8 @@ point* findNextPoint(point* currPoint, vector<polygon::point> startPoints) //fin
     randomPoint = rand() % startPoints.size();
 
     point* newPoint = new point;
-    newPoint->x = (currPoint->x + startPoints[randomPoint].x)/2;
-    newPoint->y = (currPoint->y + startPoints[randomPoint].y)/2;
+    newPoint->x = (currPoint->x + startPoints[randomPoint].x)/divideByMe;
+    newPoint->y = (currPoint->y + startPoints[randomPoint].y)/divideByMe;
 
     return newPoint;
 }//end find Next Point
@@ -79,16 +99,15 @@ int main()
     currentPoint->x = rand() % maxWidth;
     currentPoint->y = rand() % maxHeight;
 
-    polygon myPolygon(3, .3, maxWidth, maxHeight); //creates polygon class object
+    polygon myPolygon(numVertices, theta, maxWidth, maxHeight); //creates polygon class object // Special Features.
     std::cout << myPolygon.vertices[0].x << endl;; //prints list off vertex coords to terminal
 
-    for(int i=0; i<200000; i++) //higher number = higher resolution image
+    for(int i=0; i<numIterations; i++) //higher number = higher resolution image
     {
         setPointBoardTrue(currentPoint);
         //drawGrid();
         currentPoint = findNextPoint(currentPoint, myPolygon.vertices);
     }
-
     printGrid();
     return 0;
 }

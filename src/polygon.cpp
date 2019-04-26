@@ -4,9 +4,11 @@
 #include<iostream>
 // finds the vertices of a polygon of size n
 // first finds the largest circle that can be made based on size settings
-// equation divedes circle into n portions where the begining of each portion is a vertex (see /chaosEC3/polygonCircleVisual.png for visual)
+// equation divides circle into n portions where the begining of each portion is a vertex (see polygonCircleVisual.png for visual)
 // these points are stored in a public vector
 
+// Special Features.
+// classes, polygon of any size, rotation of polygon, text output, etc...
 void polygon::findPolygonPoints(double maxHeight, double maxWidth, double theta) //calculates vertices of polygon of size n
 {
     //x[n] = r * cos(2*pi*n/N + theta) + x_centre
@@ -25,8 +27,7 @@ void polygon::findPolygonPoints(double maxHeight, double maxWidth, double theta)
         defaultPoint.y = radius * sin((2.0*pi*num)/numSides + theta) + centerY;
         vertices.push_back(defaultPoint);
         std::cout << defaultPoint.x << " " << defaultPoint.y << std::endl;
-
-    }
+    }// Special Features.
 
 }
 
