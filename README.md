@@ -2,7 +2,7 @@
 05/15/2022  
 Evan Kersey
 
-# description:
+# Description:
 the chaos game creates pictures of text by jumping partway between a given set of points randomly  
  OUTPUT goes to output.txt  
 
